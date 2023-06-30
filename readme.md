@@ -1,5 +1,5 @@
 # Wideprint
-
+[![.github/workflows/publish_to_pypi.yml](https://github.com/thehappycheese/wideprint/actions/workflows/publish_to_pypi.yml/badge.svg)](https://github.com/thehappycheese/wideprint/actions/workflows/publish_to_pypi.yml)
 [![PyPI - Version](https://img.shields.io/pypi/v/wideprint.svg)](https://pypi.org/project/wideprint)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wideprint.svg)](https://pypi.org/project/wideprint)
 
@@ -18,7 +18,7 @@ pip install wideprint
  
  ```python
  from wideprint import print_columns
- 
+
  print_columns(
     data      = ["aaaa","b","c","d","e","f","g","h","i","j","kkk","l","m","n","o"],
     columns   = 3,
