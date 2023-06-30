@@ -22,3 +22,12 @@ def test_print_columns_left(capsys):
         "aaa  b",
         " cc dd",
     ])+"\n"
+
+def test_print_columns_incomplete_last_line(capsys):
+    """Test basic two columns right-aligned"""
+    print_columns(["abcd","e","f","g"], columns=3, sep=" ", alignment=">")
+    out, _ = capsys.readouterr()
+    assert out == '\n'.join([
+        "abcd e f",
+        "   g    ",
+    ])+"\n"

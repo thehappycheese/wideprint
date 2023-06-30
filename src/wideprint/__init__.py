@@ -23,8 +23,17 @@ def print_columns(data:Iterable, columns:int=3, sep:str=" ", alignment:Literal["
     j     kkk  l
     m     n    o
     """
+    # convert the data to array
     data = [*data]
-    data += [""]*(len(data) - len(data)//columns*columns)
+
+    # padd the array with blanks if there are leftover items in the last row
+    filled_rows = len(data)//columns
+    last_row_count = len(data) - filled_rows*columns
+    if last_row_count>0:
+        last_row_missing = columns-last_row_count
+        data += [""] * last_row_missing
+
+    # collect character width of each column
     column_data = []
     column_lengths = []
     for i in range(columns):
@@ -32,12 +41,11 @@ def print_columns(data:Iterable, columns:int=3, sep:str=" ", alignment:Literal["
             new_column := list(map(str, data[i::columns])),
         )
         column_lengths.append(max(len(item) for item in new_column))
-    
-    
 
-    datas, lengths = zip(*zip(column_data,column_lengths))
+    # print data
+    #datas, lengths = zip(*zip(column_data,column_lengths))
     outstring=[]
-    for data in zip(*datas):
-        fmt_string = sep.join(f"{{:{alignment}{length}}}" for length in lengths)
+    for data in zip(*column_data):
+        fmt_string = sep.join(f"{{:{alignment}{length}}}" for length in column_lengths)
         outstring.append(fmt_string.format(*data))
     print("\n".join(outstring))
