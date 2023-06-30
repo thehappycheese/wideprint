@@ -14,7 +14,12 @@ authors = [
   { name = "thehappycheese" },
 ]
 dependencies = []
-
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10"
+]
 [project.urls]
 Documentation = "https://github.com/thehappycheese/wideprint#readme"
 Issues = "https://github.com/thehappycheese/wideprint/issues"
